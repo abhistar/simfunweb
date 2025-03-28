@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { Button } from "$lib/components/ui/button";
   import type { BarChartData } from "chartist";
   import BarChart from "./BarChart.svelte";
 
@@ -91,7 +92,9 @@
   <div>Number of simulations to run</div>
   <input type="number" bind:value={numberOfSimulations} min="1" max="100000" />
 
-  <button onclick={stepsTimeCount}> Click to get simfun </button>
+  <Button variant="outline" onclick={stepsTimeCount}>Click to get simfun</Button
+  >
+
   {#if stepTimeCounterData != null}
     <BarChart data={stepTimeCounterData} height={numberOfSimulations} />
   {/if}
