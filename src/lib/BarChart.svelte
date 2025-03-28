@@ -19,12 +19,6 @@
 
   let chartContainer: Element;
 
-  onMount(() => {
-    if (chartContainer) {
-      new BarChart(chartContainer, data, options);
-    }
-  });
-
   $effect(() => {
     if (chartContainer) {
       options.high = height;
