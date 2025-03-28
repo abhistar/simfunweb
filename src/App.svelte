@@ -6,7 +6,9 @@
 </script>
 
 <main>
-  <div class="simulator">
+  <div
+    class="flex justify-self-center w-3/4 border-2 rounded-lg shadow-lg justify-center"
+  >
     <Simulator />
   </div>
 </main>

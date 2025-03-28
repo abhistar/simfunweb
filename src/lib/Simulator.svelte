@@ -1,5 +1,6 @@
 <script lang="ts">
   import { Button } from "$lib/components/ui/button";
+  import { Input } from "$lib/components/ui/input";
   import type { BarChartData } from "chartist";
   import BarChart from "./BarChart.svelte";
 
@@ -76,26 +77,53 @@
   };
 </script>
 
-<div class="simContainer">
-  <div>Initial Pace per second</div>
-  <input type="number" bind:value={initialPace} min="1" max="3" />
-  <div>Change delta for pace per second</div>
-  <input type="number" bind:value={paceDelta} min="0" max="0.03" />
-  <div>Probability of change</div>
-  <input type="number" bind:value={deltaProbability} min="0" max="1" />
-  <div>Target time in minutes</div>
-  <input type="number" bind:value={targetTimeMinutes} />
-  <div>Challenge range in percent</div>
-  <input type="number" bind:value={modelRangeInPercent} min="0" max="100" />
-  <div>Bucket size of bars in seconds</div>
-  <input type="number" bind:value={bucketSizeInSecond} min="0" />
-  <div>Number of simulations to run</div>
-  <input type="number" bind:value={numberOfSimulations} min="1" max="100000" />
+<div class="flex flex-col w-full">
+  <div class="p-8 w-full grid grid-cols-2 gap-4">
+    <div class="min-w-fit">
+      <div>Initial Pace per second</div>
+      <Input type="number" bind:value={initialPace} min="1" max="3" />
+    </div>
+    <div class="min-w-fit">
+      <div>Change delta for pace per second</div>
+      <Input type="number" bind:value={paceDelta} min="0" max="0.03" />
+    </div>
 
-  <Button variant="outline" onclick={stepsTimeCount}>Click to get simfun</Button
-  >
+    <div class="min-w-fit">
+      <div>Probability of change</div>
+      <Input type="number" bind:value={deltaProbability} min="0" max="1" />
+    </div>
+    <div class="min-w-fit">
+      <div>Target time in minutes</div>
+      <Input type="number" bind:value={targetTimeMinutes} />
+    </div>
 
+    <div class="min-w-fit">
+      <div>Challenge range in percent</div>
+      <Input type="number" bind:value={modelRangeInPercent} min="0" max="100" />
+    </div>
+    <div class="min-w-fit">
+      <div>Bucket size of bars in seconds</div>
+      <Input type="number" bind:value={bucketSizeInSecond} min="0" />
+    </div>
+
+    <div class="min-w-fit">
+      <div>Number of simulations to run</div>
+      <Input
+        type="number"
+        bind:value={numberOfSimulations}
+        min="1"
+        max="100000"
+      />
+    </div>
+    <div class="min-w-fit self-end">
+      <Button variant="outline" onclick={stepsTimeCount}
+        >Click to get simfun</Button
+      >
+    </div>
+  </div>
   {#if stepTimeCounterData != null}
-    <BarChart data={stepTimeCounterData} height={numberOfSimulations} />
+    <div class="w-full min-h-full">
+      <BarChart data={stepTimeCounterData} height={numberOfSimulations} />
+    </div>
   {/if}
 </div>
