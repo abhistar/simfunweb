@@ -18,8 +18,10 @@
     let targetTimeSeconds = targetTimeMinutes * 60;
     let numberOfSteps = initialPace * targetTimeSeconds;
 
-    let minTargetTime = (targetTimeSeconds * (100 - modelRangeInPercent)) / 100;
-    let maxTargetTime = (targetTimeSeconds * (100 + modelRangeInPercent)) / 100;
+    let minTargetTime =
+      (targetTimeSeconds * (100 - 2 * modelRangeInPercent)) / 100;
+    let maxTargetTime =
+      (targetTimeSeconds * (100 + 2 * modelRangeInPercent)) / 100;
 
     let stepTimeCounts = new Map<number, number>();
 
