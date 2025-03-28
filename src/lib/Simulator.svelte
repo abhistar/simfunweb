@@ -11,6 +11,7 @@
   let modelRangeInPercent: number = $state(10);
   let numberOfSimulations: number = $state(10);
   let bucketSizeInSecond: number = $state(30);
+  let averageTimeInSecondForPaceChange: number = $state(10);
 
   let stepTimeCounterData: BarChartData | null = $state(null);
 
@@ -61,9 +62,9 @@
     let pace = initialPace;
     let steps = 0;
     let totalTime = 0;
-    while (steps + pace * 60 <= stepsLimit) {
-      steps += pace * 60;
-      totalTime += 60;
+    while (steps + pace * averageTimeInSecondForPaceChange <= stepsLimit) {
+      steps += pace * averageTimeInSecondForPaceChange;
+      totalTime += averageTimeInSecondForPaceChange;
       let randomNumber = Math.random();
       if (randomNumber <= deltaProbability) {
         pace -= paceDelta;
@@ -79,8 +80,10 @@
   };
 </script>
 
-<div class="flex flex-col w-full">
-  <div class="p-8 w-full grid grid-cols-2 gap-4">
+<div class="flex flex-col w-full gap-4 p-8">
+  <div>Adam walk simulator</div>
+  <div>jhjhkjk</div>
+  <div class="w-full grid grid-cols-2 gap-4">
     <div class="min-w-fit">
       <div>Initial Pace per second</div>
       <Input type="number" bind:value={initialPace} min="1" max="3" />
@@ -106,6 +109,15 @@
       <Input type="number" bind:value={bucketSizeInSecond} min="0" />
     </div>
     <div class="min-w-fit">
+      <div>Average time in seconds for change in pace</div>
+      <Input
+        type="number"
+        bind:value={averageTimeInSecondForPaceChange}
+        min="1"
+        max="60"
+      />
+    </div>
+    <div class="min-w-fit">
       <div>Number of simulations to run</div>
       <Input
         type="number"
@@ -114,11 +126,11 @@
         max="100000"
       />
     </div>
-    <div class="min-w-fit self-end">
-      <Button variant="outline" onclick={stepsTimeCount}
-        >Click to get simfun</Button
-      >
-    </div>
+  </div>
+  <div class="self-center">
+    <Button variant="outline" onclick={stepsTimeCount}
+      >Click to get simfun</Button
+    >
   </div>
   {#if stepTimeCounterData != null}
     <div class="w-full min-h-full">
