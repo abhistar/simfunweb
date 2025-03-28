@@ -10,11 +10,6 @@
   let options: BarChartOptions = {
     high: height,
     low: 0,
-    axisX: {
-      labelInterpolationFnc(value, index) {
-        return index % 2 === 0 ? value : null;
-      },
-    },
   };
 
   let chartContainer: Element;
@@ -27,4 +22,4 @@
   });
 </script>
 
-<div bind:this={chartContainer} class="ct-chart"></div>
+<div bind:this={chartContainer} class="ct-chart" style="height: 40vh;"></div>

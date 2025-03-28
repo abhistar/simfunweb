@@ -87,7 +87,6 @@
       <div>Change delta for pace per second</div>
       <Input type="number" bind:value={paceDelta} min="0" max="0.03" />
     </div>
-
     <div class="min-w-fit">
       <div>Probability of change</div>
       <Input type="number" bind:value={deltaProbability} min="0" max="1" />
@@ -96,7 +95,6 @@
       <div>Target time in minutes</div>
       <Input type="number" bind:value={targetTimeMinutes} />
     </div>
-
     <div class="min-w-fit">
       <div>Challenge range in percent</div>
       <Input type="number" bind:value={modelRangeInPercent} min="0" max="100" />
@@ -105,7 +103,6 @@
       <div>Bucket size of bars in seconds</div>
       <Input type="number" bind:value={bucketSizeInSecond} min="0" />
     </div>
-
     <div class="min-w-fit">
       <div>Number of simulations to run</div>
       <Input
