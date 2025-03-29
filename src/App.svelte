@@ -19,7 +19,7 @@
         </div>
       </div>
       <div
-        class="w-3/4 border-2 rounded-lg shadow-lg relative -top-24 justify-center justify-self-anchor-center opacity-100 bg-white z-10"
+        class="md:w-3/4 w-full border-2 rounded-lg shadow-lg relative -top-24 justify-center justify-self-anchor-center opacity-100 bg-white z-10"
       >
         <Simulator />
       </div>
